@@ -185,6 +185,39 @@
 
 
 //4th
+// const winston = require("winston");
+// const express = require("express");
+
+// const app = express();
+
+// require("./startup/routes")(app);
+// require("./startup/db")();
+// require("./startup/logging")();
+// require("./startup/config")();
+// require("./startup/validation")();
+// require("./startup/prod")(app);
+
+// //  process.on('uncaughtException', (ex) => {
+// //     console.log('WE GOT AN UNCAUGHT EXCEPTION');
+// //     winston.error(ex.message, ex);
+// // });
+// // throw new Error('Something failed during startup.');
+
+
+// // process.on('unhandledRejection', (ex) => {
+// //     // console.log('WE GOT AN UNHANDLED REJECTION');
+// //     winston.error(ex.message, ex);
+// //     // zero is success, anything other than zero is failure.
+// //     process.exit(1);
+// // });
+
+
+// const port = process.env.PORT || 3000;
+// //app.listen(port, () => console.log(`Listening on port ${port}....`));
+// app.listen(port, () => winston.info(`Listening on port ${port}...`));
+
+
+//5th
 const winston = require("winston");
 const express = require("express");
 
@@ -197,21 +230,8 @@ require("./startup/config")();
 require("./startup/validation")();
 require("./startup/prod")(app);
 
-//  process.on('uncaughtException', (ex) => {
-//     console.log('WE GOT AN UNCAUGHT EXCEPTION');
-//     winston.error(ex.message, ex);
-// });
-// throw new Error('Something failed during startup.');
 
+const port = process.env.PORT || winston.config.get("port");
+const server = app.listen(port, () => winston.info(`Listening on port ${port}...`));
 
-// process.on('unhandledRejection', (ex) => {
-//     // console.log('WE GOT AN UNHANDLED REJECTION');
-//     winston.error(ex.message, ex);
-//     // zero is success, anything other than zero is failure.
-//     process.exit(1);
-// });
-
-
-const port = process.env.PORT || 3000;
-//app.listen(port, () => console.log(`Listening on port ${port}....`));
-app.listen(port, () => winston.info(`Listening on port ${port}...`));
+module.exports = server;
