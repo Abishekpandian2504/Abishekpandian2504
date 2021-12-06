@@ -1,4 +1,4 @@
 {
     "jwtPrivateKey": "",
-    "db": "mongodb+srv://Abishek2504:Abishek2504@cluster0.rxcng.mongodb.net/vidly?retryWrites=true&w=majority"
+    "db": "mongodb+srv://Abishekpandian:Abishek2504@cluster0.rxcng.mongodb.net/vidly?retryWrites=true&w=majority"
 }
