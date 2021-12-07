@@ -1,4 +1,4 @@
 {
-    "jwtPrivateKey": "",
-    "db": "mongodb+srv://Abishek2504:Abishek250499@cluster0.rxcng.mongodb.net/vidly?retryWrites=true&w=majority"
+    "jwtPrivateKey": ""
+
 }
